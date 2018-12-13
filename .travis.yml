@@ -27,7 +27,7 @@ script:
 - echo $TRAVIS_OS_NAME >> TestResults_18003.csv;
 - echo $TRAVIS_COMMIT_MESSAGE >> TestResults_18003.csv;
 - cat ./TestResults_18003.csv;
-- curl -H "$JFROG_TOKEN" -T "$TestResults_18003.csv" "https://na.artifactory.swg-devops.com/artifactory/hyc-openliberty-guides-files-generic-local/";
+- curl -H "$JFROG_TOKEN" -T "TestResults_18003.csv" "https://na.artifactory.swg-devops.com/artifactory/hyc-openliberty-guides-files-generic-local/";
 notifications:
   slack:
     template:
