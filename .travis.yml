@@ -15,7 +15,7 @@ script:
 - cd target/liberty/wlp/usr/servers/"$serverName"/logs/; repo_name=$(echo "$TRAVIS_REPO_SLUG"
   | sed -e "s/\//-/g"); if [ "$TRAVIS_TEST_RESULT" -eq 0 ]; then result="passed";
   else result="failed"; fi; serverlogsarchive="$repo_name-$TRAVIS_BUILD_NUMBER-$result.zip";zip
-  -r "$serverlogsarchive" .; curl -H "$JFROG_TOKEN" -T "$serverlogsarchive" "https://na.artifactory.swg-devops.com/artifactory/hyc-openliberty-guides-files-generic-local/";
+  -r "$serverlogsarchive" .;
 - printf "\n" >> 18003_TestResults.csv;
 - echo "$TRAVIS_REPO_SLUG" >> 18003_TestResults.csv;
 - echo $TRAVIS_COMMIT_MESSAGE >> 18003_TestResults.csv;
@@ -27,7 +27,7 @@ script:
 - echo $TRAVIS_OS_NAME >> 18003_TestResults.csv;
 - echo $TRAVIS_COMMIT_MESSAGE >> 18003_TestResults.csv;
 - cat ./18003_TestResults.csv;
-- printf ./18003_TestResults.csv;
+- curl -H "$JFROG_TOKEN" -T "$18003_TestResults.csv" "https://na.artifactory.swg-devops.com/artifactory/hyc-openliberty-guides-files-generic-local/";
 notifications:
   slack:
     template:
