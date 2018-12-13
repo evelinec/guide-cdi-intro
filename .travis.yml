@@ -16,16 +16,9 @@ script:
   | sed -e "s/\//-/g"); if [ "$TRAVIS_TEST_RESULT" -eq 0 ]; then result="passed";
   else result="failed"; fi; serverlogsarchive="$repo_name-$TRAVIS_BUILD_NUMBER-$result.zip";zip
   -r "$serverlogsarchive" .; curl -H "$JFROG_TOKEN" -T "$serverlogsarchive" "https://na.artifactory.swg-devops.com/artifactory/hyc-openliberty-guides-files-generic-local/";
-- echo $TRAVIS_REPO_SLUG 2>&1 | tee 18003_TestResults.csv;
-- echo $TRAVIS_COMMIT_MESSAGE 2>&1 | tee 18003_TestResults.csv;
-- if [ "$TRAVIS_TEST_RESULT" -eq 0 ]; then result="passed"; else result="failed"; fi; echo $result 2>&1 | tee 18003_TestResults.csv;
-- echo $TRAVIS_JOB_NUMBER 2>&1 | tee 18003_TestResults.csv;
-- echo $TRAVIS_JOB_ID 2>&1 | tee 18003_TestResults.csv;
-- echo $TRAVIS_BUILD_NUMBER 2>&1 | tee 18003_TestResults.csv;
-- echo $TRAVIS_BUILD_ID 2>&1 | tee 18003_TestResults.csv;
-- echo $TRAVIS_OS_NAME 2>&1 | tee 18003_TestResults.csv;
-- echo $TRAVIS_JDK_VERSION 2>&1 | tee 18003_TestResults.csv;
-- echo $TRAVIS_COMMIT_MESSAGE 2>&1 | tee 18003_TestResults.csv;
+- echo $TRAVIS_REPO_SLUG 2>&1 18003_TestResults.csv;
+- echo $TRAVIS_COMMIT_MESSAGE 2>&1 18003_TestResults.csv;
+- cat 18003_TestResults.csv;
 notifications:
   slack:
     template:
