@@ -25,10 +25,9 @@ script:
 - printf $TRAVIS_BUILD_NUMBER >> 18003_TestResults.csv;
 - printf $TRAVIS_BUILD_ID >> 18003_TestResults.csv;
 - printf $TRAVIS_OS_NAME >> 18003_TestResults.csv;
-- printf $TRAVIS_JDK_VERSION >> 18003_TestResults.csv;
 - printf $TRAVIS_COMMIT_MESSAGE >> 18003_TestResults.csv;
-- cat ./18003_TestResults.csv
-- printf ./18003_TestResults.csv
+- cat ./18003_TestResults.csv;
+- printf ./18003_TestResults.csv;
 notifications:
   slack:
     template:
