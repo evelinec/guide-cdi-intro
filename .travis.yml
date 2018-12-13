@@ -28,6 +28,8 @@ script:
 - echo $TRAVIS_COMMIT_MESSAGE >> TestResults_18003.csv;
 - cat ./TestResults_18003.csv;
 - curl -H "$JFROG_TOKEN" -T "TestResults_18003.csv" "https://na.artifactory.swg-devops.com/artifactory/hyc-openliberty-guides-files-generic-local/";
+- printf "\n" "$TRAVIS_REPO_SLUG" "$TRAVIS_COMMIT_MESSAGE" "$TRAVIS_TEST_RESULT" "$TRAVIS_JOB_NUMBER" "$TRAVIS_JOB_ID" "$TRAVIS_BUILD_NUMBER" "$TRAVIS_BUILD_ID" "$TRAVIS_OS_NAME" >> test.csv;
+- cat ./test.csv;
 notifications:
   slack:
     template:
