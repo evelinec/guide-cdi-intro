@@ -16,18 +16,18 @@ script:
   | sed -e "s/\//-/g"); if [ "$TRAVIS_TEST_RESULT" -eq 0 ]; then result="passed";
   else result="failed"; fi; serverlogsarchive="$repo_name-$TRAVIS_BUILD_NUMBER-$result.zip";zip
   -r "$serverlogsarchive" .;
-- printf "\n" >> 18003_TestResults.csv;
-- echo "$TRAVIS_REPO_SLUG" >> 18003_TestResults.csv;
-- echo $TRAVIS_COMMIT_MESSAGE >> 18003_TestResults.csv;
-- if [ "$TRAVIS_TEST_RESULT" -eq 0 ]; then result="passed"; else result="failed"; fi; echo $result >> 18003_TestResults.csv;
-- echo $TRAVIS_JOB_NUMBER >> 18003_TestResults.csv;
-- echo $TRAVIS_JOB_ID >> 18003_TestResults.csv;
-- echo $TRAVIS_BUILD_NUMBER >> 18003_TestResults.csv;
-- echo $TRAVIS_BUILD_ID >> 18003_TestResults.csv;
-- echo $TRAVIS_OS_NAME >> 18003_TestResults.csv;
-- echo $TRAVIS_COMMIT_MESSAGE >> 18003_TestResults.csv;
-- cat ./18003_TestResults.csv;
-- curl -H "$JFROG_TOKEN" -T "$18003_TestResults.csv" "https://na.artifactory.swg-devops.com/artifactory/hyc-openliberty-guides-files-generic-local/";
+- printf "\n" >> TestResults_18003.csv;
+- echo "$TRAVIS_REPO_SLUG" >> TestResults_18003.csv;
+- echo $TRAVIS_COMMIT_MESSAGE >> TestResults_18003.csv;
+- if [ "$TRAVIS_TEST_RESULT" -eq 0 ]; then result="passed"; else result="failed"; fi; echo $result >> TestResults_18003.csv;
+- echo $TRAVIS_JOB_NUMBER >> TestResults_18003.csv;
+- echo $TRAVIS_JOB_ID >> TestResults_18003.csv;
+- echo $TRAVIS_BUILD_NUMBER >> TestResults_18003.csv;
+- echo $TRAVIS_BUILD_ID >> TestResults_18003.csv;
+- echo $TRAVIS_OS_NAME >> TestResults_18003.csv;
+- echo $TRAVIS_COMMIT_MESSAGE >> TestResults_18003.csv;
+- cat ./TestResults_18003.csv;
+- curl -H "$JFROG_TOKEN" -T "$TestResults_18003.csv" "https://na.artifactory.swg-devops.com/artifactory/hyc-openliberty-guides-files-generic-local/";
 notifications:
   slack:
     template:
