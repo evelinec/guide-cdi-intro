@@ -9,8 +9,11 @@
 :page-layout: guide
 :page-duration: 15 minutes
 :page-releasedate: 2018-03-09
+:page-guide-category: microprofile
+:page-essential: true
+:page-essential-order: 2
 :page-description: Learn how to use Contexts and Dependency Injection to manage and inject dependencies into microservices.
-:page-tags: ['CDI', 'REST', '@ApplicationScoped', '@RequestScoped', '@Inject', 'MicroProfile', 'Dependency Injection', 'microservices']
+:page-tags: ['CDI', 'REST', '@ApplicationScoped', '@RequestScoped', '@Inject', 'MicroProfile', 'Dependency Injection', 'microservices', 'Java EE']
 :page-permalink: /guides/{projectid}
 :page-related-guides: ['rest-intro']
 :common-includes: https://raw.githubusercontent.com/OpenLiberty/guides-common/master
@@ -20,7 +23,8 @@
 = Injecting dependencies into microservices
 
 [.hidden]
-NOTE: {link-to-published-guide}
+
+NOTE: This repository contains the guide documentation source. To view the guide in published form, view it on the https://openliberty.io/guides/{projectid}.html[Open Liberty website].
 
 Learn how to use Contexts and Dependency Injection to manage and inject dependencies into microservices.
 
@@ -89,7 +93,6 @@ After you are done checking out the application, stop the Open Liberty server:
 mvn liberty:stop-server
 ```
 
-Now, navigate back to the `start` directory to begin.
 
 
 == Handling dependencies in the application
@@ -98,6 +101,8 @@ You will use CDI to inject dependencies into the inventory manager application a
 
 === Managing scopes and contexts
 
+Navigate to the `start` directory to begin.
+
 Create the inventory manager class in the `src/main/java/io/openliberty/guides/inventory/InventoryManager.java` file:
 
 [source, Java]
@@ -105,8 +110,8 @@ Create the inventory manager class in the `src/main/java/io/openliberty/guides/i
 include::finish/src/main/java/io/openliberty/guides/inventory/InventoryManager.java[tags=**;!copyright;]
 ----
 
-This bean contains two simple functions. The `get()` function is for retrieving entries from calling the `system` service,
-and then add it to the inventory list.
+This bean contains three simple functions. The `get()` function is for retrieving entries from calling the `system` service.
+The `add()` function is for adding entries to the inventory.
 The `list()` function is for listing all the entries currently stored in the inventory.
 
 This bean must be persistent between all the clients, which means multiple clients need to share the same instance.
@@ -136,7 +141,7 @@ also be application-scoped, request scope is short-lived and is therefore ideal 
 Refer to the `inventory` resource class you created above:
 `src/main/java/io/openliberty/guides/inventory/InventoryResource.java`.
 
-The @Inject annotation indicates a dependency injection.
+The `@Inject` annotation indicates a dependency injection.
 You are injecting your `InventoryManager` bean into the `InventoryResource` class.
 This injects the bean in its specified context (application-scoped) and makes all of its functionalities
 available without the need of instantiating it yourself.
@@ -161,7 +166,7 @@ You can find the `inventory` and `system` services at the following URLs:
 - http://localhost:9080/inventory/systems
 - http://localhost:9080/system/properties
 
-include::{common-includes}/mvnpackage.adoc[]
+include::{common-includes}/mvncompile.adoc[]
 
 
 // =================================================================================================
