@@ -19,10 +19,7 @@ script:
 - echo "$TRAVIS_REPO_SLUG" "$TRAVIS_COMMIT_MESSAGE" "$TRAVIS_TEST_RESULT" "$TRAVIS_JOB_NUMBER" "$TRAVIS_JOB_ID" "$TRAVIS_BUILD_NUMBER" "$TRAVIS_BUILD_ID" "$TRAVIS_OS_NAME" >> TestResults_18003.csv;
 - cat ./TestResults_18003.csv;
 - curl -H "$JFROG_TOKEN" -T "TestResults_18003.csv" "https://na.artifactory.swg-devops.com/artifactory/hyc-openliberty-guides-files-generic-local/";
-- echo "$TRAVIS_REPO_SLUG""_""$TRAVIS_TEST_RESULT""_""$TRAVIS_BUILD_NUMBER""_""$TRAVIS_OS_NAME" > JOBSTATUS
-- echo $JOBSTATUS;
-- curl -H "$JFROG_TOKEN" -T "$JOBSTATUS" "https://na.artifactory.swg-devops.com/artifactory/hyc-openliberty-guides-files-generic-local/";
-- TestResultFile="TR_18003_"$TRAVIS_BUILD_ID"_"$TRAVIS_JOB_ID".csv";
+- TestResultFile="TR_18003_"$TRAVIS_BUILD_NUMBER"_"$TRAVIS_JOB_NUMBER".csv";
 - echo "$TRAVIS_REPO_SLUG" "$TRAVIS_COMMIT_MESSAGE" "$TRAVIS_TEST_RESULT" "$TRAVIS_JOB_NUMBER" "$TRAVIS_JOB_ID" "$TRAVIS_BUILD_NUMBER" "$TRAVIS_BUILD_ID" "$TRAVIS_OS_NAME" >> $TestResultFile;
 - cat ./$TestResultFile;
 - curl -H "$JFROG_TOKEN" -T "$TestResultFile" "https://na.artifactory.swg-devops.com/artifactory/hyc-openliberty-guides-files-generic-local/";
