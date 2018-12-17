@@ -1,4 +1,7 @@
 language: java
+os: 
+  - linux
+  - osx
 before_script:
 - unset _JAVA_OPTIONS
 - cd finish
