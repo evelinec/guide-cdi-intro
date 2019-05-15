@@ -1,6 +1,6 @@
 ### What was fixed?  (Issue # or description of fix)
 
-### PR FROM `<branch/fork>` TO `qa/dev` BRANCH
+### Checklist for PR from `<branch/fork>` to `qa/dev` branch
 
 #### Peer review for `<branch/fork>` to `qa/dev` branch: 
 - [ ] Check all the changes
@@ -22,7 +22,7 @@
 - [ ] Assign the PR to the original PR contributor to review
 
 
-### PR FROM `qa` TO `master` BRANCH
+### Checklist for PR from `qa` to `master` branch
 
 #### PR contributor to verify and approve the `QA to Master` PR
 - [ ] PR contributor verify the changes are good 
