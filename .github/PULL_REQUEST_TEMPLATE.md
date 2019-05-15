@@ -1,7 +1,8 @@
 #### What was fixed?  (Issue # or description of fix)
 
-_____
-#### PR from `<branch/fork>` to `qa/dev` branch 
+____
+PR FROM `<branch/fork>` TO `qa/dev` BRANCH 
+____
 
 #### Peer review for `<branch/fork>` to `qa/dev` branch: 
 - [ ] Check all the changes
@@ -23,10 +24,12 @@ _____
 - [ ] Assign the PR to the original PR contributor to review
 
 _____
-#### PR from `qa` to `master` branch ####
+#### PR FROM `qa` TO `master` BRANCH
+____
 
-- [ ] PR contributor to verify the `QA to Master` PR is good 
-- [ ] Tag `OpenLiberty/static-guide-admin` after approving the `QA to Master` PR
+#### PR contributor to verify and approve the `QA to Master` PR
+- [ ] PR contributor verify the changes are good 
+- [ ] Tag `OpenLiberty/static-guide-admin` after approving the PR
 
 #### Admin to merge `QA to Master` PR: 
 - [ ] Verified changes are good and approved
