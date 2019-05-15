@@ -1,8 +1,6 @@
-#### What was fixed?  (Issue # or description of fix)
+### What was fixed?  (Issue # or description of fix)
 
-____
-PR FROM `<branch/fork>` TO `qa/dev` BRANCH 
-____
+### PR FROM `<branch/fork>` TO `qa/dev` BRANCH
 
 #### Peer review for `<branch/fork>` to `qa/dev` branch: 
 - [ ] Check all the changes
@@ -23,9 +21,8 @@ ____
 - [ ] If everything is good, create a PR from `qa` to `master` with heading `QA to Master: <description>`
 - [ ] Assign the PR to the original PR contributor to review
 
-_____
-#### PR FROM `qa` TO `master` BRANCH
-____
+
+### PR FROM `qa` TO `master` BRANCH
 
 #### PR contributor to verify and approve the `QA to Master` PR
 - [ ] PR contributor verify the changes are good 
