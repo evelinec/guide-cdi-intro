@@ -1,0 +1,25 @@
+version: 2
+updates:
+- package-ecosystem: maven
+  directory: "/finish"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: io.openliberty.features:features-bom
+    versions:
+    - 21.0.0.1
+    - 21.0.0.2
+    - 21.0.0.3
+  - dependency-name: org.apache.cxf:cxf-rt-rs-extension-providers
+    versions:
+    - 3.4.2
+  - dependency-name: org.apache.cxf:cxf-rt-rs-client
+    versions:
+    - 3.4.2
+  - dependency-name: com.sun.xml.bind:jaxb-impl
+    versions:
+    - 3.0.0
+  - dependency-name: com.sun.xml.bind:jaxb-core
+    versions:
+    - 3.0.0
